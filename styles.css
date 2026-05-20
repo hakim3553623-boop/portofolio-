@@ -1,0 +1,393 @@
+/* Reset CSS Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tema Gelap Global */
+html {
+    scroll-padding-top: 100px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+section {
+    scroll-margin-top: 130px; 
+}
+
+/* Navigasi Bar (CSS Klasik - Anti Nempel) */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    transition: all 0.4s ease;
+}
+
+nav.sticky {
+    background: rgba(15, 23, 42, 0.98);
+    padding: 15px 8%;
+    border-bottom: 1px solid #1e293b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+/* Pengganti fitur 'gap' yang error di browser lama */
+nav ul li {
+    margin: 0 15px; 
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
+    transform: translateY(-2px);
+}
+
+/* Bagian Hero Utama */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    padding: 0 8%;
+    padding-top: 100px;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.hero-img-box {
+    text-align: right;
+    margin-right: 50px; /* Pengganti gap */
+    flex: 1;
+}
+
+.hero-profile-img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #38bdf8;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.hero-profile-img:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.hero-text-content {
+    text-align: left;
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 56px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Animasi Kursor Berkedip Efek Mengetik */
+#typewriter-text {
+    font-size: 22px;
+    color: #94a3b8;
+    margin-bottom: 35px;
+    min-height: 33px;
+    position: relative;
+}
+
+#typewriter-text::after {
+    content: '|';
+    animation: blink 0.8s infinite;
+    margin-left: 3px;
+    color: #38bdf8;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Komponen Tombol */
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: #38bdf8;
+    color: #0f172a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0284c7;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(56, 189, 248, 0.6);
+}
+
+.btn-outline {
+    display: inline-block;
+    margin: 25px 0;
+    padding: 12px 35px;
+    border: 2px solid #38bdf8;
+    color: #38bdf8;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #38bdf8;
+    color: #0f172a;
+}
+
+/* Komponen Projek Galeri */
+.projects-section {
+    padding: 120px 8%;
+    background-color: #0b1120;
+}
+
+.projects-section h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.projects-section h2 span {
+    color: #38bdf8;
+}
+
+.projects-section > p {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Layout Video (Dirubah ke Flexbox Aman) */
+.video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.video-card {
+    background: #1e293b;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid #334155;
+    width: 100%;
+    max-width: 350px; 
+    margin: 20px; /* Pengganti gap */
+}
+
+.video-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    border-color: #38bdf8;
+}
+
+/* Perbaikan Video yang memanjang */
+video {
+    width: 100%;
+    height: 200px; /* Memaksa tinggi video agar tidak memanjang di browser lama */
+    object-fit: cover;
+    background-color: #000;
+    display: block;
+    border-bottom: 4px solid #38bdf8;
+}
+
+.video-info {
+    padding: 30px;
+}
+
+.project-author-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-author-img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #38bdf8;
+    margin-right: 18px; /* Pengganti gap agar gambar dan teks tidak nempel */
+}
+
+.project-meta h3 {
+    font-size: 20px;
+    color: #f8fafc;
+    margin-bottom: 5px;
+}
+
+.project-meta p {
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+/* Footer & Link Sosial Media */
+footer {
+    text-align: center;
+    padding: 100px 20px 50px;
+    background: #0f172a;
+    border-top: 1px solid #1e293b;
+}
+
+footer h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #cbd5e1;
+}
+
+.social-links {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+    color: #94a3b8;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 15px; /* Pengganti gap agar ikon tidak nempel */
+}
+
+.social-links a:hover {
+    color: #38bdf8;
+    transform: scale(1.2);
+}
+
+.copyright {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #475569;
+}
+
+/* =======================================================
+   RESPONSIF MOBILE / HP (AMAN UNTUK BROWSER LAMA)
+   ======================================================= */
+@media (min-width: 768px) {
+    /* Membuat video sedikit lebih besar di layar laptop/tablet */
+    video {
+        height: 220px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-img-box, .hero-text-content {
+        text-align: center;
+        width: 100%;
+        margin-right: 0;
+    }
+    .hero-img-box {
+        order: -1; 
+        margin-bottom: 30px; /* Pengganti gap */
+    }
+    .hero-profile-img {
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
+    }
+    .hero h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        background-color: #0f172a !important; 
+        border-bottom: 1px solid #1e293b;
+    }
+    nav.sticky {
+        padding: 10px 5%;
+    }
+    nav ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 5px 10px; /* Mengatur spasi menu di HP */
+    }
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 150px; 
+        padding-bottom: 60px;
+    }
+    .hero h1 {
+        font-size: 32px;
+        line-height: 1.3;
+        word-wrap: break-word;
+    }
+    #typewriter-text {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    .hero-profile-img {
+        width: 180px;
+        height: 180px;
+        border-width: 4px;
+    }

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - HaqimEdits AM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- INTEGRASI DAN PENYEMPURNAAN CSS --- */
+        
+        /* Reset CSS dasar untuk konsistensi */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Tema Gelap Global dan Navigasi Mulus */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px; /* Jarak aman dari navigasi fixed */
+        }
+
+        section {
+            scroll-margin-top: 130px; 
+        }
+
+        /* Navigasi Bar Fixed */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(15, 23, 42, 0.98);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #1e293b;
+            transition: all 0.4s ease;
+        }
+
+        nav.sticky {
+            padding: 10px 8%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+            transform: translateY(-2px);
+        }
+
+        /* Bagian Hero Utama */
+        .hero {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            padding: 40px 8%;
+            text-align: center;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .hero-img-box {
+            text-align: right;
+        }
+
+        .hero-profile-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-profile-img:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .hero-text-content {
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        /* Efek Mengetik Otomatis */
+        #typewriter-text {
+            font-size: 22px;
+            color: #94a3b8;
+            margin-bottom: 35px;
+            min-height: 33px;
+            position: relative;
+        }
+
+        #typewriter-text::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            margin-left: 3px;
+            color: #38bdf8;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Komponen Tombol */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(56, 189, 248, 0.6);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            margin: 25px 0;
+            padding: 12px 35px;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        /* Bagian Projek Galeri */
+        .projects-section {
+            padding: 120px 8%;
+            background-color: #0b1120;
+        }
+
+        .projects-section h2 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .projects-section h2 span {
+            color: #38bdf8;
+        }
+
+        .projects-section > p {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Grid Layout Video */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            background: #1e293b;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border-color: #38bdf8;
+        }
+
+        /* PERBAIKAN VIDEO: object-fit contain dan height auto agar tidak di-zoom liar */
+        video {
+            width: 100%;
+            height: auto; 
+            max-height: 250px; 
+            object-fit: contain; 
+            background-color: #000;
+            display: block;
+            border-bottom: 4px solid #38bdf8; 
+        }
+
+        .video-info {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-author-box {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .project-author-img {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #38bdf8;
+        }
+
+        .project-meta h3 {
+            font-size: 20px;
+            color: #f8fafc;
+            margin-bottom: 5px;
+        }
+
+        .project-meta p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        /* Footer & Link Sosial Media */
+        footer {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        .social-links {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: #94a3b8;
+            font-size: 28px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #38bdf8;
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        /* =======================================================
+           RESPONSIF MOBILE / HP (PERBAIKAN TOTAL)
+           ======================================================= */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 15px 5%;
+            }
+            nav.sticky {
+                padding: 10px 5%;
+            }
+            
+            .hero {
+                text-align: center;
+                padding-top: 20px;
+            }
+            .hero-container {
+                display: flex; 
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-img-box, .hero-text-content {
+                text-align: center;
+                width: 100%;
+            }
+            .hero-img-box {
+                order: -1; 
+            }
+            .hero-profile-img {
+                width: 240px;
+                height: 240px;
+                margin: 0 auto;
+            }
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 100px; 
+            }
+            nav {
+                flex-direction: column;
+                padding: 15px;
+                background-color: #0f172a !important; 
+                border-bottom: 1px solid #1e293b;
+            }
+            nav.sticky {
+                padding: 10px 5%;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px; 
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 32px;
+                line-height: 1.3;
+                word-wrap: break-word; 
+            }
+            #typewriter-text {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+            .projects-section {
+                padding: 80px 5%;
+            }
+            .projects-section h2 {
+                font-size: 30px;
+            }
+            .video-grid {
+                gap: 25px; 
+            }
+            .social-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav">
+        <div class="logo">Haqim<span>Edits</span></div>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#projek">Projek</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section id="beranda" class="hero">
+        <div class="hero-container">
+            <div class="hero-img-box">
+                <img src="foto-profil.jpg" alt="Foto Profil Abdul Haqim" class="hero-profile-img">
+            </div>
+            <div class="hero-text-content">
+                <h1>Halo, Saya Abdul Haqim</h1>
+                <p id="typewriter-text">Video Editor | Spesialis Alight Motion (AM) & Kreator Visual</p>
+                <a href="#projek" class="btn">Lihat Projek Saya</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projek" class="projects-section">
+        <h2>Projek <span>Video Saya</span></h2>
+        <p>Lihat hasil editan terbaik saya, menonjolkan CC, transisi mulus, dan motion blur dari Alight Motion.</p>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls preload="metadata">
+                    <source src="video1.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung tag video ini.
+                </video>
+                <div class="video-info">
+                    <div class="project-author-box">
+                        <img src="foto-profil.jpg" alt="Abdul" class="project-author-img">
+                        <div class="project-meta">
+                            <h3>AMV / Jedag Jedug Style</h3>
+                            <p>Fokus pada beat sync dan transisi 3D.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <video controls preload="metadata">
+                    <source src="video2.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung tag video ini.
+                </video>
+                <div class="video-info">
+                    <div class="project-author-box">
+                        <img src="foto-profil.jpg" alt="Abdul" class="project-author-img">
+                        <div class="project-meta">
+                            <h3>Cinematic Text & Color Grading</h3>
+                            <p>Tipografi sinematik dengan pewarnaan dramatis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <video controls preload="metadata">
+                    <source src="video3.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung tag video ini.
+                </video>
+                <div class="video-info">
+                    <div class="project-author-box">
+                        <img src="foto-profil.jpg" alt="Abdul" class="project-author-img">
+                        <div class="project-meta">
+                            <h3>Velocity Edit</h3>
+                            <p>Slow-mo dengan time-remapping dan optical flow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontak">
+        <h2>Tertarik bekerja sama?</h2>
+        <p>Mari buat video yang menarik bersama-sama.</p>
+        <a href="mailto:email-hakim4554623@gmail.com" class="btn-outline">Hubungi Saya Melalui Email</a>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/szyn_23?igsh=MTFzMGF0YjU2bWJ4eQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@zenith-s8u" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@zenith_038" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        
+        <p class="copyright">© 2026 Abdul Haqim.</p>
+    </footer>
+
+    <script>
+        // 1. Efek Mengetik Otomatis (Typewriter Effect)
+        const textElement = document.getElementById('typewriter-text');
+        const textToType = textElement.innerText;
+        textElement.innerText = ''; 
+        let index = 0;
+
+        function typeWriterEffect() {
+            if (index < textToType.length) {
+                textElement.innerHTML += textToType.charAt(index);
+                index++;
+                setTimeout(typeWriterEffect, 50);
+            }
+        }
+        window.addEventListener('load', typeWriterEffect);
+
+        // 2. Efek Navigasi Berubah Warna Saat Di-scroll
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('sticky');
+            } else {
+                nav.classList.remove('sticky');
+            }
+        });
+
+        // 3. Otomatis Pause Video Saat Di-scroll Keluar Layar
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const handleVideoView = (entries, observer) => {
+            entries.forEach(entry => {
+                const video = entry.target.querySelector('video');
+                // Jika video tidak terlihat, pause
+                if (!entry.isIntersecting && !video.paused) {
+                    video.pause();
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleVideoView, options);
+        document.querySelectorAll('.video-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
